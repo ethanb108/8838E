@@ -40,8 +40,8 @@ void ArcadeDrive() {
   const double max_velocity = 100.0;
   const double throttle_tuning = 0.6;
   const double turn_tuning = 0.6;
-  const double turn_scaling = 0.5;
-  const double spin_scaling = 0.5;
+  const double turn_scaling = 0.6;
+  const double spin_scaling = 0.4;
 
   // Get the current controller joysitck state.
   double throttle = max_velocity * RemapJoystick(robot.main_controller_->Axis3, throttle_tuning);
