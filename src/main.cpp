@@ -34,6 +34,21 @@ double RemapJoystick(const vex::controller::axis &joystick_axis, double a1) {
   return a1 * x * x * x + (1.0 - a1) * x;
 }
 
+// Intake drive
+void IntakeDrive(){
+  // Figuring out  if the intake should be foward, backward, or stationary 
+  if (robot.main_controller_->ButtonR1.pressing()) {
+    // Run Intake Motors Forward
+    // todo
+  } else if (robot.main_controller_->ButtonR2.pressing()) {
+    // Run Intake Motors Backwards
+    // todo
+  } else {
+    // Intake stays stationary
+    // todo
+  }
+}
+
 // Arcade drive
 void ArcadeDrive() {
   // Upper limit on motors power that will be used. For example, a value of 100
@@ -153,6 +168,10 @@ void usercontrol(void) {
   // Controller button event handlers
   robot.main_controller_->Axis3.changed(ArcadeDrive);
   robot.main_controller_->Axis1.changed(ArcadeDrive);
+  robot.main_controller_->ButtonR1.pressed(IntakeDrive);
+  robot.main_controller_->ButtonR1.released(IntakeDrive);
+  robot.main_controller_->ButtonR2.pressed(IntakeDrive);
+  robot.main_controller_->ButtonR2.released(IntakeDrive);
 
   // User control code here, inside the loop
   while (1) {
