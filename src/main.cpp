@@ -36,11 +36,33 @@ double RemapJoystick(const vex::controller::axis &joystick_axis, double a1) {
 
 // Arcade drive
 void ArcadeDrive() {
-  // Configuration parameters
+  // Upper limit on motors power that will be used. For example, a value of 100
+  // will allow all of the motor's power will be used, while a value of 50 will
+  // limit us to a max speed of 50 percent.
+  // Allowed values: [0, 100] 
   const double max_velocity = 100.0;
+
+  // It controls how much we apply to the remaping algolrithm. If the value is 
+  // close to zero the throttle input won't be affected bu the remaping as much.
+  // If the value is large than the joystick it is less sensitive to movement.
+  // Allowed values: [0,1]
   const double throttle_tuning = 0.6;
+  
+  // It controls how much we apply to the remaping algolrithm. If the value is 
+  // close to zero the turning input won't be affected bu the remaping as much.
+  // If the value is large than the joystick it is less sensitive to movement.
+  // Allowed values: [0,1]
   const double turn_tuning = 0.6;
+  
+  // Controls how strongly the robot will turn. If the value is close to zero 
+  // it will make a wide turn. if the value is close to one, it will make a very
+  // sharp turn.
+  // Allowed values: [0,1]
   const double turn_scaling = 0.6;
+  
+  // Controls how fast the robot will spin. If the value is close to zero 
+  // it will spin slowly. if the value is close to one, it will spin quickly.
+  // Allowed values: [0,1]
   const double spin_scaling = 0.4;
 
   // Get the current controller joysitck state.
