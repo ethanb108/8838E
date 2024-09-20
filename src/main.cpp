@@ -39,13 +39,13 @@ void IntakeDrive(){
   // Figuring out  if the intake should be foward, backward, or stationary 
   if (robot.main_controller_->ButtonR1.pressing()) {
     // Run Intake Motors Forward
-    // todo
+    robot.firstStage5WattMotor_->spin(vex::directionType::fwd, 100.0, vex::percentUnits::pct);
   } else if (robot.main_controller_->ButtonR2.pressing()) {
     // Run Intake Motors Backwards
-    // todo
+    robot.firstStage5WattMotor_->spin(vex::directionType::rev, 100.0, vex::percentUnits::pct);
   } else {
     // Intake stays stationary
-    // todo
+    robot.firstStage5WattMotor_->stop();
   }
 }
 
