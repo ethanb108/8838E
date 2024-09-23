@@ -19,15 +19,18 @@ Devices::Devices() {
   leftUpperMotor_.reset(new vex::motor(vex::PORT11, kDrivetrainGears, kRotateFoward));
   leftBackMotor_.reset(new vex::motor(vex::PORT18, kDrivetrainGears, kRotateReverse));
  
-  rightFrontMotor_.reset(new vex::motor(vex::PORT14, kDrivetrainGears, kRotateFoward));
-  rightUpperMotor_.reset(new vex::motor(vex::PORT12, kDrivetrainGears, kRotateReverse));
-  rightBackMotor_.reset(new vex::motor(vex::PORT20, kDrivetrainGears, kRotateFoward));
+  rightFrontMotor_.reset(new vex::motor(vex::PORT6, kDrivetrainGears, kRotateFoward));
+  rightUpperMotor_.reset(new vex::motor(vex::PORT7, kDrivetrainGears, kRotateReverse));
+  rightBackMotor_.reset(new vex::motor(vex::PORT1, kDrivetrainGears, kRotateFoward));
   
   leftDriveGroup_.reset(new vex::motor_group(*leftFrontMotor_, *leftUpperMotor_, *leftBackMotor_));
   rightDriveGroup_.reset(new vex::motor_group(*rightFrontMotor_, *rightUpperMotor_, *rightBackMotor_));
 
   // Intake Motors
-  firstStage5WattMotor_.reset(new vex::motor(vex::PORT8, kRotateReverse));
-  secondStage11WattMotor_.reset(new vex::motor(vex::PORT2, kRotateFoward));
+  firstStage5WattMotor_.reset(new vex::motor(vex::PORT12, kRotateReverse));
+  secondStage11WattMotor_.reset(new vex::motor(vex::PORT5, kRotateFoward));
   secondStage5WattMotor_.reset(new vex::motor(vex::PORT3, kRotateReverse));
+
+  // Intake motor groups
+  intakeMotorGroup_.reset(new vex::motor_group(*firstStage5WattMotor_, *secondStage11WattMotor_, *secondStage5WattMotor_));
 }

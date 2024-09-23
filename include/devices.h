@@ -34,6 +34,9 @@ class Devices {
   std::unique_ptr<vex::motor> firstStage5WattMotor_;
   std::unique_ptr<vex::motor> secondStage11WattMotor_;
   std::unique_ptr<vex::motor> secondStage5WattMotor_;
+  
+  // Vex V5 intake motor group 
+  std::unique_ptr<vex::motor_group> intakeMotorGroup_;
 };
 
 #endif  // #ifndef DEVICES_H
