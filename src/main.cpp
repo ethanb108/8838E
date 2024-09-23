@@ -15,7 +15,7 @@ using namespace vex;
 competition Competition;
 
 // Global Robot Configuration
-Devices robot;
+Devices robot(RobotConfig::SCHOOL_BOT);
 
 // Write a line of text to the top of the screen(mostly for debugging).
 void WriteText(const std::string &text) {

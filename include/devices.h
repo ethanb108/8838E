@@ -4,10 +4,18 @@
 #include <memory>
 #include "vex.h"
 
+// An enumeration to select which port setting to use.
+enum class RobotConfig {
+  // 8838E Team Bot
+  SCHOOL_BOT,
+  // Ethan's Home Expierement Bot
+  ETHAN_HOME_BOT,
+};
+
 // Class to hold all of the devices and device groups on the robot.
 class Devices {
  public:
-  Devices();
+  Devices(RobotConfig config);
   ~Devices() = default;
 
  //private:
